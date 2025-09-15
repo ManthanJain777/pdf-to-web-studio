@@ -51,11 +51,11 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => window.location.href = '/auth'}>
               Login
             </Button>
-            <Button size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-              Get Started
+            <Button size="sm" className="bg-gradient-primary text-primary-foreground hover:opacity-90" onClick={() => window.location.href = '/dashboard'}>
+              Dashboard
               <ChevronRight className="w-4 h-4 ml-1" />
             </Button>
           </div>
@@ -94,11 +94,11 @@ const Navigation = () => {
               </div>
 
               <div className="mt-8 space-y-3">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" onClick={() => window.location.href = '/auth'}>
                   Login
                 </Button>
-                <Button className="w-full bg-gradient-primary text-primary-foreground">
-                  Get Started
+                <Button className="w-full bg-gradient-primary text-primary-foreground" onClick={() => window.location.href = '/dashboard'}>
+                  Dashboard
                 </Button>
               </div>
             </SheetContent>

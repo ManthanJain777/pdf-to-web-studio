@@ -61,6 +61,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 text-lg animate-glow-pulse"
+                onClick={() => window.location.href = '/auth'}
               >
                 Start Verification
               </Button>
@@ -68,8 +69,9 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 py-4 text-lg"
+                onClick={() => window.location.href = '/dashboard'}
               >
-                View Demo
+                View Dashboard
               </Button>
             </div>
           </div>

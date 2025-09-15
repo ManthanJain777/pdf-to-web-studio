@@ -14,6 +14,89 @@ export type Database = {
   }
   public: {
     Tables: {
+      exams: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          end_time: string | null
+          exam_code: string
+          id: string
+          start_time: string | null
+          status: string | null
+          title: string
+          total_candidates: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          end_time?: string | null
+          exam_code: string
+          id?: string
+          start_time?: string | null
+          status?: string | null
+          title: string
+          total_candidates?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          end_time?: string | null
+          exam_code?: string
+          id?: string
+          start_time?: string | null
+          status?: string | null
+          title?: string
+          total_candidates?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      fraud_detection: {
+        Row: {
+          candidate_name: string
+          confidence_score: number | null
+          description: string | null
+          detected_at: string
+          exam_id: string | null
+          fraud_type: string
+          id: string
+          risk_level: string | null
+          status: string | null
+        }
+        Insert: {
+          candidate_name: string
+          confidence_score?: number | null
+          description?: string | null
+          detected_at?: string
+          exam_id?: string | null
+          fraud_type: string
+          id?: string
+          risk_level?: string | null
+          status?: string | null
+        }
+        Update: {
+          candidate_name?: string
+          confidence_score?: number | null
+          description?: string | null
+          detected_at?: string
+          exam_id?: string | null
+          fraud_type?: string
+          id?: string
+          risk_level?: string | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fraud_detection_exam_id_fkey"
+            columns: ["exam_id"]
+            isOneToOne: false
+            referencedRelation: "exams"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       kv_store_683e58b0: {
         Row: {
           key: string
@@ -28,6 +111,110 @@ export type Database = {
           value?: Json
         }
         Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      system_status: {
+        Row: {
+          id: string
+          last_checked: string
+          service_name: string
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          last_checked?: string
+          service_name: string
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          last_checked?: string
+          service_name?: string
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      verifications: {
+        Row: {
+          candidate_name: string
+          confidence_score: number | null
+          created_at: string
+          exam_id: string | null
+          id: string
+          status: string | null
+          updated_at: string
+          verification_code: string
+          verification_type: string
+          verified_at: string | null
+        }
+        Insert: {
+          candidate_name: string
+          confidence_score?: number | null
+          created_at?: string
+          exam_id?: string | null
+          id?: string
+          status?: string | null
+          updated_at?: string
+          verification_code: string
+          verification_type: string
+          verified_at?: string | null
+        }
+        Update: {
+          candidate_name?: string
+          confidence_score?: number | null
+          created_at?: string
+          exam_id?: string | null
+          id?: string
+          status?: string | null
+          updated_at?: string
+          verification_code?: string
+          verification_type?: string
+          verified_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "verifications_exam_id_fkey"
+            columns: ["exam_id"]
+            isOneToOne: false
+            referencedRelation: "exams"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
